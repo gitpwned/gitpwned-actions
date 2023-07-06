@@ -1,0 +1,17 @@
+name: gitpwned
+on: [pull_request, push, workflow_dispatch]
+jobs:
+  scan:
+    name: gitpwned
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: gitpwned/gitpwned-actions@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITPWNED_LICENSE: ${{ secrets.GITPWNED_LICENSE}}
+          # examples of how to use optional configs:
+          # GITPWNED_CONFIG: "configs/simple-config.toml"
+          # GITPWNED_NOTIFY_USER_LIST: "@gitpwned"
