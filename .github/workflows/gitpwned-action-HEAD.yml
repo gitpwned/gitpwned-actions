@@ -1,0 +1,26 @@
+# Copyright © 2023 Gitpwned LLC - All Rights Reserved.
+# You may use this code under the terms of the GITPWNED-ACTION END-USER LICENSE AGREEMENT.
+# You should have received a copy of the GITPWNED-ACTION END-USER LICENSE AGREEMENT with this file.
+# If not, please visit https://github.com/gitpwned/gitpwned-actions/blob/main/COMMERCIAL-LICENSE.txt.
+
+# CAUTION: This is for testing purposes.
+name: gitpwned-action-HEAD
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *" # run once a day at 4 AM
+jobs:
+  scan:
+    name: gitpwned-action-HEAD
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: master
+      - uses: ./ # Runs the action that's in the root directory of the repo checked out above. i.e. This action itself.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITPWNED_LICENSE: ${{ secrets.GITPWNED_LICENSE}}
