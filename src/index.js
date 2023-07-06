@@ -1,8 +1,3 @@
-// Copyright © 2023 Gitpwned LLC - All Rights Reserved.
-// You may use this code under the terms of the GITPWNED-ACTION END-USER LICENSE AGREEMENT.
-// You should have received a copy of the GITPWNED-ACTION END-USER LICENSE AGREEMENT with this file.
-// If not, please visit https://gitpwned.github.io/COMMERCIAL-LICENSE.txt.
-
 const { Octokit } = require("@octokit/rest");
 const { readFileSync } = require("fs");
 const core = require("@actions/core");
