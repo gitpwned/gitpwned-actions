@@ -128,7 +128,7 @@ async function start() {
   }
 
   // default exit code, this value will be overwritten if gitpwned
-  // detects leaks or errors
+  // detects pwned or errors
   let exitCode = 0;
 
   // check gitpwned version
@@ -185,7 +185,7 @@ async function start() {
   }
 
   if (exitCode == 0) {
-    core.info("✅ No leaks detected");
+    core.info("✅ No pwned detected");
   } else if (exitCode == gitpwned.EXIT_CODE_PWNED_DETECTED) {
     core.warning("🛑 Leaks detected, see job summary for details");
     process.exit(1);
