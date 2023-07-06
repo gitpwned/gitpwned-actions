@@ -1,0 +1,9 @@
+name: Gitpwned
+author: gitpwned
+branding:
+  icon: "git-pull-request"
+  color: "purple"
+description: run gitpwned on push and pull-request events
+runs:
+  using: "node16"
+  main: "dist/index.js"
